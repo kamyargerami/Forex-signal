@@ -2,6 +2,7 @@ import requests
 from api_providers.provider import provider
 
 class alphavantage(provider):
+    ## 20 symbols support per hour - 17 added
     symbols = ['EURUSD', 'USDJPY', 'GBPUSD', 'AUDUSD', 'USDCAD', 'USDCHF', 'NZDUSD', 'EURGBP', 'EURAUD', 'EURCHF', 'EURJPY', 'EURNZD', 'GBPEUR', 'GBPJPY', 'GBPAUD', 'GBPCAD', 'GBPCHF']
 
     def get_hourly_rsi_rate(self, symbol):
