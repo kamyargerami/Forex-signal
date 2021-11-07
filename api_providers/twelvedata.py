@@ -1,4 +1,3 @@
-import json
 import requests
 from api_providers.provider import provider
 
