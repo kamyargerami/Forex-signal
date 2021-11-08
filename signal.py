@@ -17,7 +17,7 @@ if not len(results):
 buttons = []
 for result in results:
     buttons.append({
-        'text': result['symbol'] + ' - ' + ('Buy ⬆️' if result['daily_rate'] < 35 else 'Sell ⬇️'),
+        'text': result['symbol'] + ' - ' + result['hour_rate'] + ' - ' + ('Buy ⬆️' if result['daily_rate'] < 35 else 'Sell ⬇️'),
         'url': 'https://www.tradingview.com/chart?symbol=FX%3A' + result['symbol']
     })
 

@@ -33,10 +33,6 @@ class provider:
 
             if not hourly_rate:
                 continue
-            if (hourly_rate < 55 and hourly_rate > 40):
-                continue
-            if (hourly_rate > 40 and hourly_rate < 55):
-                continue
 
             result.append({'symbol': symbol, 'hour_rate': hourly_rate, 'daily_rate': daily_rate})
             
