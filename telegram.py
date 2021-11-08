@@ -8,6 +8,6 @@ class telegram:
             'chat_id': '-1001639596478',
             'text': text,
             'reply_markup': json.dumps({
-                'inline_keyboard': [buttons]
+                'inline_keyboard': buttons
             })
         }, proxies=proxies, timeout=10)
