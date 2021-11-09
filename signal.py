@@ -14,14 +14,18 @@ print('--------------------------------')
 if not len(results):
     exit()
 
+text = '📊 RSI Choices in Daily Rates: \n\n'
 buttons = []
 for result in results:
     buttons.append([{
-        'text': '%s (%s) - %s' % (result['symbol'], result['hour_rate'], ('Buy ⬆️' if result['daily_rate'] < 35 else 'Sell ⬇️')),
+        'text': '%s (%s)' % (result['symbol'], result['hour_rate']),
         'url': 'https://www.tradingview.com/chart?symbol=FX%3A' + result['symbol'].replace('/', '')
     }])
 
-telegram.send(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), buttons, {
+    text += '%s (%s) - %s \n ------------ \n' % (result['symbol'], result['daily_rate'], ('Buy ⬆️' if result['daily_rate'] < 35 else 'Sell ⬇️'))
+text += '\n Their Hourly Rates:'
+
+telegram.send(text, buttons, {
     # 'http': 'http://127.0.0.1:1080',
     # 'https': 'http://127.0.0.1:1080',
 })
