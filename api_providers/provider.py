@@ -23,9 +23,9 @@ class provider:
 
             if not daily_rate:
                 continue
-            if (daily_rate < 65 and daily_rate > 35):
+            if (daily_rate < 70 and daily_rate > 30):
                 continue
-            if (daily_rate > 35 and daily_rate < 65):
+            if (daily_rate > 30 and daily_rate < 70):
                 continue
 
             hourly_rate = self.get_hourly_rsi_rate(symbol)
