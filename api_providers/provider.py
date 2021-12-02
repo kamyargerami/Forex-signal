@@ -9,6 +9,9 @@ class provider:
     def get_daily_rsi_rate(self, symbol):
         pass
 
+    def get_weekly_rsi_rate(self, symbol):
+        pass
+
     def result(self):
         result = []
 
@@ -16,24 +19,24 @@ class provider:
             print('**************')
             print(symbol)
 
-            time.sleep(12)
+            time.sleep(20)
+
+            weekly_rate = self.get_weekly_rsi_rate(symbol)
+            print('Weekly rate:', weekly_rate)
+
+            if not weekly_rate:
+                continue
+            if (weekly_rate < 67 and weekly_rate > 33):
+                continue
+            if (weekly_rate > 33 and weekly_rate < 67):
+                continue
 
             daily_rate = self.get_daily_rsi_rate(symbol)
             print('Daily rate:', daily_rate)
 
             if not daily_rate:
                 continue
-            if (daily_rate < 70 and daily_rate > 30):
-                continue
-            if (daily_rate > 30 and daily_rate < 70):
-                continue
 
-            hourly_rate = self.get_hourly_rsi_rate(symbol)
-            print('Hourly rate:', hourly_rate)
-
-            if not hourly_rate:
-                continue
-
-            result.append({'symbol': symbol, 'hour_rate': hourly_rate, 'daily_rate': daily_rate})
+            result.append({'symbol': symbol, 'weekly_rate': weekly_rate, 'daily_rate': daily_rate})
             
         return result
