@@ -19,7 +19,7 @@ class provider:
             print('**************')
             print(symbol)
 
-            time.sleep(20)
+            time.sleep(15)
 
             weekly_rate = self.get_weekly_rsi_rate(symbol)
             print('Weekly rate:', weekly_rate)
