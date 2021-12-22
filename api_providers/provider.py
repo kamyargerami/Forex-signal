@@ -30,14 +30,14 @@ class provider:
 
             if not hourly_rate:
                 continue
-            if (hourly_rate < 73 and hourly_rate > 27):
+            if (hourly_rate < 75 and hourly_rate > 25):
                 continue
-            if (hourly_rate > 27 and hourly_rate < 73):
+            if (hourly_rate > 25 and hourly_rate < 75):
                 continue
 
             daily_rate = self.get_daily_rsi_rate(symbol)
             print('Daily rate:', daily_rate)
-            
+
             result.append({'symbol': symbol, 'hourly_rate': hourly_rate, 'daily_rate': daily_rate})
 
         return result
