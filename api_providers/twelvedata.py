@@ -31,7 +31,7 @@ class twelvedata(provider):
         return self.get_rate(symbol, '1h')
 
     def get_daily_rsi_rate(self, symbol):
-        return self.get_rate(symbol, '1d')
+        return self.get_rate(symbol, '1day')
 
     def get_weekly_rsi_rate(self, symbol):
         return self.get_rate(symbol, '1week')
