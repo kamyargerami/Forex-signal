@@ -32,8 +32,6 @@ print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), '-', provider)
 results = twelvedata().result() if provider == 'twelvedata' else alphavantage().result()
 print('--------------------------------')
 
-print(results)
-
 if not len(results):
     exit()
 
