@@ -37,10 +37,7 @@ class provider:
 
             daily_rate = self.get_daily_rsi_rate(symbol)
             print('Daily rate:', daily_rate)
-
-            if not daily_rate:
-                continue
-
+            
             result.append({'symbol': symbol, 'hourly_rate': hourly_rate, 'daily_rate': daily_rate})
 
         return result
