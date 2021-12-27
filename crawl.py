@@ -20,8 +20,8 @@ def send_notify(results):
     text += '\n Their Daily Rates:'
 
     telegram.send(text, buttons, {
-        'http': 'socks5h://127.0.0.1:1080',
-        'https': 'socks5h://127.0.0.1:1080'
+        # 'http': 'socks5h://127.0.0.1:1080',
+        # 'https': 'socks5h://127.0.0.1:1080'
     })
 
 
