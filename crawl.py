@@ -11,12 +11,12 @@ def send_notify(results):
     buttons = []
     for result in results:
         buttons.append([{
-            'text': '%s (%s)' % (result['symbol'], result['daily_rate']),
+            'text': '%s (%s)' % (result['symbol'], result['hourly_rate']),
             'url': 'https://www.tradingview.com/chart?symbol=FX%3A' + result['symbol'].replace('/', '')
         }])
 
         text += '%s (%s) - %s \n ------------ \n' % (
-            result['symbol'], result['hourly_rate'], ('Buy ⬆️' if result['hourly_rate'] < 35 else 'Sell ⬇️'))
+            result['symbol'], result['daily_rate'], ('Buy ⬆️' if result['daily_rate'] < 35 else 'Sell ⬇️'))
     text += '\n Their Daily Rates:'
 
     telegram.send(text, buttons, {

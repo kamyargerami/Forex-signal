@@ -25,18 +25,18 @@ class provider:
 
             time.sleep(15)
 
-            hourly_rate = self.get_hourly_rsi_rate(symbol)
-            print('Hourly rate:', hourly_rate)
-
-            if not hourly_rate:
-                continue
-            if (hourly_rate < 79 and hourly_rate > 21):
-                continue
-            if (hourly_rate > 21 and hourly_rate < 79):
-                continue
-
             daily_rate = self.get_daily_rsi_rate(symbol)
             print('Daily rate:', daily_rate)
+
+            if not daily_rate:
+                continue
+            if (daily_rate < 75 and daily_rate > 25):
+                continue
+            if (daily_rate > 25 and daily_rate < 75):
+                continue
+
+            hourly_rate = self.get_hourly_rsi_rate(symbol)
+            print('Hourly rate:', hourly_rate)
 
             result.append({'symbol': symbol, 'hourly_rate': hourly_rate, 'daily_rate': daily_rate})
 
