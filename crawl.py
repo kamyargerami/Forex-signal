@@ -17,8 +17,8 @@ def send_notify(results):
         }])
 
     telegram.send(text, buttons, {
-        'http': 'socks5h://127.0.0.1:1080',
-        'https': 'socks5h://127.0.0.1:1080'
+        # 'http': 'socks5h://127.0.0.1:1080',
+        # 'https': 'socks5h://127.0.0.1:1080'
     })
 
 
