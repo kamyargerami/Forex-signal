@@ -1,6 +1,8 @@
-# Forex Rsi
+# Forex signal with RSI, CCI and MFI indicators
 
-We used Rsi daily and Rsi hourly to get best signals
+Get forex pairs that have good RSI, CCI and MFI rates in daily timeframe.
+
+you can change the timeframe in provider.py file to hourly or weekly.
 
 ## Installation
 
