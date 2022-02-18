@@ -8,6 +8,27 @@ We used Rsi daily and Rsi hourly to get best signals
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
+
+after that you must copy .env.example file to .env and change the variables with your data.
+
+```
+cp .env.example .env
+```
+
+then edit the .env file and add your API keys.
+
+```
+TELEGRAM_CHAT_ID=
+TELEGRAM_BOT_TOKEN=
+
+ALPHAVANTAGE_API_KEY=
+TWELVEDATA_API_KEY=
+```
+
+after that you can run the script with below command:
+
+```
 python3 signal.py {twelvedata | alphavantage}
 ```
 
