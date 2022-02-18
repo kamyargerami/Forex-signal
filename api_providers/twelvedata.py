@@ -1,11 +1,14 @@
 from datetime import datetime
 
 import requests
+from dotenv import dotenv_values
 
 from api_providers.provider import provider
 
+config = dotenv_values(".env")
 
-class twelvedata(provider):
+
+class Twelvedata(provider):
     symbols = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'AUD/USD', 'USD/CAD', 'USD/CHF', 'NZD/USD', 'EUR/GBP', 'EUR/AUD',
                'EUR/CHF', 'EUR/JPY', 'EUR/NZD', 'GBP/EUR', 'GBP/JPY', 'GBP/AUD', 'GBP/CAD', 'GBP/CHF', 'GBP/NZD',
                'CAD/CHF', 'CAD/JPY', 'FB', 'IBM', 'AAPL', 'PEP', 'BABA', 'MSFT']
@@ -17,8 +20,8 @@ class twelvedata(provider):
             return False
 
         response = requests.get(
-            'https://api.twelvedata.com/%s?symbol=%s&interval=%s&time_period=%d&apikey=f4ca8bae96fe4fd88717d7bdbbba1d37' % (
-                indicator, symbol, interval, time_period))
+            'https://api.twelvedata.com/%s?symbol=%s&interval=%s&time_period=%d&apikey=%s' % (
+                indicator, symbol, interval, time_period, config['TWELVEDATA_API_KEY']), timeout=5)
         results = response.json().get('values')
 
         if not results:

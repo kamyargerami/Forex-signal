@@ -1,8 +1,8 @@
 import sys
 from datetime import datetime
 
-from api_providers.alphavantage import alphavantage
-from api_providers.twelvedata import twelvedata
+from api_providers.alphavantage import Alphavantage
+from api_providers.twelvedata import Twelvedata
 from telegram import telegram
 
 
@@ -26,10 +26,11 @@ provider = sys.argv[1] if len(sys.argv[1:]) else 'twelvedata'
 
 print('--------------------------------')
 print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), '-', provider)
-results = twelvedata().get_result() if provider == 'twelvedata' else alphavantage().get_result()
+results = Twelvedata().get_result() if provider == 'twelvedata' else Alphavantage().get_result()
 print('--------------------------------')
 
 if not len(results):
+    print('No results')
     exit()
 
 send_notify(results)

@@ -1,16 +1,19 @@
 import requests
+from dotenv import dotenv_values
 
 from api_providers.provider import provider
 
+config = dotenv_values(".env")
 
-class alphavantage(provider):
+
+class Alphavantage(provider):
     symbols = ['EURUSD', 'USDJPY', 'GBPUSD', 'AUDUSD', 'USDCAD', 'USDCHF', 'NZDUSD', 'EURGBP', 'EURAUD', 'EURCHF',
                'EURJPY', 'EURNZD', 'GBPEUR', 'GBPJPY', 'GBPAUD', 'GBPCAD', 'GBPCHF', 'GBPNZD', 'CADCHF', 'CADJPY']
 
     def get_rate(self, symbol, interval, indicator='RSI', time_period=14):
         response = requests.get(
-            'https://www.alphavantage.co/query?function=%s&symbol=%s&interval=%s&time_period=%d&series_type=close&apikey=MVS8TN4ZTQF1ONES'
-            % (indicator, symbol, interval, time_period))
+            'https://www.alphavantage.co/query?function=%s&symbol=%s&interval=%s&time_period=%d&series_type=close&apikey=%s'
+            % (indicator, symbol, interval, time_period, config['ALPHAVANTAGE_API_KEY']), timeout=5)
 
         results = response.json().get('Technical Analysis: RSI')
 

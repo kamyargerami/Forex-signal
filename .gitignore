@@ -2,5 +2,6 @@
 __pycache__
 .idea
 .venv
+.env
 twelvedata.log.txt
 alphavantage.log.txt
